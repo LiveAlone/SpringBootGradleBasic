@@ -4,8 +4,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.yqj.boot.demo.model.AddressResponse;
-import org.yqj.boot.demo.model.BaseResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -28,12 +26,12 @@ public class LocalRestController {
             System.out.println("key : " + key);
             System.out.println("value : " + Arrays.asList(value).toString());
         });
-        return BaseResponse.successResponse("success");
+        return BaseResponse.Companion.successResponse("success");
     }
 
 
     @RequestMapping(value = "/address", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public BaseResponse address() throws UnknownHostException {
-        return BaseResponse.successResponse(new AddressResponse(InetAddress.getLocalHost().getHostName(), InetAddress.getLocalHost().getHostAddress()));
+        return BaseResponse.Companion.successResponse(new AddressResponse(InetAddress.getLocalHost().getHostName(), InetAddress.getLocalHost().getHostAddress()));
     }
 }
