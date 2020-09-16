@@ -15,7 +15,6 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
-
 repositories {
     mavenCentral()
 }
@@ -48,5 +47,12 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
+    }
+}
+
+tasks.register("printVersion") {
+    group = "personalTest"
+    doLast {
+        println("current project version is $version")
     }
 }
