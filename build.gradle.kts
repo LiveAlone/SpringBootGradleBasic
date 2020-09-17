@@ -5,7 +5,7 @@ plugins {
     id("io.spring.dependency-management") version ("1.0.10.RELEASE")
     kotlin("jvm") version "1.3.72"
     kotlin("plugin.spring") version "1.3.72"
-    `maven-publish`
+    `maven`
 }
 
 group = "org.yqj.boot"
@@ -47,12 +47,5 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "1.8"
-    }
-}
-
-tasks.register("printVersion") {
-    group = "personalTest"
-    doLast {
-        println("current project version is $version")
     }
 }
