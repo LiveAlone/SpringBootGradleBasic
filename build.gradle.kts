@@ -8,16 +8,27 @@ plugins {
     `maven-publish`
 }
 
-group = "org.yqj.boot"
-version = "1.0.0-SNAPSHOT"
-
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
+}
+
+publishing {
+
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "org.yqj.boot"
+            artifactId = "basic"
+            version = "2.0.1"
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
 }
 
 dependencies {
